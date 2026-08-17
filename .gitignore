@@ -1,0 +1,4 @@
+node_modules/
+dist/
+checklist.txt
+.vite/

@@ -1,0 +1,770 @@
+* {
+    cursor: url(../pixheart.png) 0, 0 auto !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a,
+body,
+button,
+input,
+textarea,
+select,
+.clickable {
+    cursor: url("../pixheart.png") 0 0, auto !important;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-image: linear-gradient(to right bottom, #051937, #2d3568, #5f509a, #9c6aca, #a93cc2);
+    /* NEW BACKGROUND (smooth gradient animation) */
+    /* background: linear-gradient(132deg, #ce2c7d, #850202, #b13581); */
+    /* background-size: 400% 400%; */
+    /* animation: BackgroundGradient 15s ease infinite; */
+    cursor: url("../pixheart.png") 12 12, auto;
+}
+
+@keyframes BackgroundGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ===== MAIN LAYOUT ===== */
+
+.main-section {
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+}
+
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    position: absolute;
+    bottom: 0%;
+    right: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(46, 161, 161, 0.301);
+    height: 60px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 0 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-cont {
+    text-decoration: none;
+    color: white;
+    font-family: "Cinzel", sans-serif;
+    font-weight: lighter;
+    font-size: smaller;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar-cont:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: #000000;
+}
+
+
+/* ===== CHAPTERS SIDEBAR ===== */
+
+.chapters {
+    height: 80vh;
+    width: 25vw;
+    min-width: 250px;
+    background-color: rgba(115, 126, 126, 0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-top: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: absolute;
+    left: 5%;
+    top: 7%;
+}
+
+.chap-but {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    padding: 15px;
+    font-family: "Cinzel", serif;
+    /* font-weight: bolder; */
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 90%;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.chap-but:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.dropmenu {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.chapt-sub {
+    display: none;
+    position: absolute;
+    background-color: rgba(115, 126, 126, 0.8);
+    min-width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+    left: 0;
+    top: 100%;
+}
+
+.dropmenu:hover .chapt-sub {
+    display: block;
+}
+
+.chapt-subd {
+    background-color: transparent;
+    border: none;
+    font-family: 'Times New Roman', serif;
+    font-weight: bolder;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.chapt-subd:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.book-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    gap: 20px;
+}
+
+.book {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    transition: transform 0.5s ease;
+    font-family: "Monsieur La Doulaise", cursive;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back {
+    background-color: rgb(231, 193, 135);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.42, 0, 0.58, 1);
+    border-radius: 5px 0 0 5px;
+    overflow: hidden;
+}
+
+.front-cover .front {
+    background: linear-gradient(135deg, #cf1342 0%, #991728 100%);
+    color: gold;
+    border-left: 5px solid rgb(255, 0, 85);
+}
+
+.back-cover .back {
+    background: linear-gradient(135deg, #2F4F4F 0%, #1C2E2E 100%);
+    color: silver;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid powderblue;
+}
+
+.back {
+    z-index: 0;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    background-image: radial-gradient(circle at 20px 20px, rgba(139, 69, 19, 0.1) 2px, transparent 2px), radial-gradient(circle at calc(100% - 20px) calc(100% - 20px), rgba(139, 69, 19, 0.1) 2px, transparent 2px);
+    background-size: 40px 40px;
+}
+
+.back-content {
+    transform: rotateY(180deg);
+    padding: 30px;
+}
+
+
+/* Paper flip effect */
+
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+
+/* ===== PAPER STACK ORDER (30 papers) ===== */
+
+#p1 {
+    z-index: 60;
+}
+
+#p2 {
+    z-index: 59;
+}
+
+#p3 {
+    z-index: 58;
+}
+
+#p4 {
+    z-index: 57;
+}
+
+#p5 {
+    z-index: 56;
+}
+
+#p6 {
+    z-index: 55;
+}
+
+#p7 {
+    z-index: 54;
+}
+
+#p8 {
+    z-index: 53;
+}
+
+#p9 {
+    z-index: 52;
+}
+
+#p10 {
+    z-index: 51;
+}
+
+#p11 {
+    z-index: 50;
+}
+
+#p12 {
+    z-index: 49;
+}
+
+#p13 {
+    z-index: 48;
+}
+
+#p14 {
+    z-index: 47;
+}
+
+#p15 {
+    z-index: 46;
+}
+
+#p16 {
+    z-index: 45;
+}
+
+#p17 {
+    z-index: 44;
+}
+
+#p18 {
+    z-index: 43;
+}
+
+#p19 {
+    z-index: 42;
+}
+
+#p20 {
+    z-index: 41;
+}
+
+#p21 {
+    z-index: 40;
+}
+
+#p22 {
+    z-index: 39;
+}
+
+#p23 {
+    z-index: 38;
+}
+
+#p24 {
+    z-index: 37;
+}
+
+#p25 {
+    z-index: 36;
+}
+
+#p26 {
+    z-index: 35;
+}
+
+#p27 {
+    z-index: 34;
+}
+
+#p28 {
+    z-index: 33;
+}
+
+#p29 {
+    z-index: 32;
+}
+
+#p30 {
+    z-index: 31;
+}
+
+
+/* ===== PAPER SHADOW & EDGE EFFECT ===== */
+
+.paper {
+    box-shadow: -1px 0 0 0 rgba(0, 0, 0, 0.2), -2px 0 0 0 rgba(0, 0, 0, 0.15), -3px 0 0 0 rgba(0, 0, 0, 0.10), -4px 0 0 0 rgba(0, 0, 0, 0.05);
+    border-radius: 5px 0 0 5px;
+}
+
+.front::after,
+.back::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient( to bottom, #dcdcdc, #f5f5f5 20%, #dcdcdc 40%, #f5f5f5 60%, #dcdcdc 80%, #f5f5f5);
+    opacity: 0.5;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+}
+
+#finale-text {
+    font-family: "Tangerine";
+}
+
+.poem-text {
+    font-size: 28px;
+    font-family: "Tangerine", cursive;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 15px;
+    color: rgb(173, 74, 74);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    scroll-behavior: smooth;
+}
+
+.poem-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 36px;
+    color: #8B0000;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.front-cover .front-content h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 48px;
+    color: gold;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 20px;
+    font-weight: normal;
+}
+
+.back-cover .back-content h1 {
+    font-family: "Passion One", sans-serif;
+    font-size: 42px;
+    color: silver;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.front-content::after,
+.back-content::after {
+    content: attr(data-page);
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-family: 'Times New Roman', serif;
+    font-size: 12px;
+    color: #666;
+    transition: opacity 0.3s ease;
+}
+
+.paper:hover .front-content::after,
+.paper:hover .back-content::after {
+    opacity: 0.8;
+}
+
+.front-content::before,
+.back-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(139, 69, 19, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+#prev-btn,
+#next-btn {
+    border: none;
+    background-color: rgba(240, 255, 255, 0.3);
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#prev-btn:hover,
+#next-btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(240, 255, 255, 0.5);
+}
+
+#prev-btn h1,
+#next-btn h1 {
+    font-size: 40px;
+    color: #333;
+    margin: 0;
+    line-height: 1;
+}
+
+button:focus {
+    outline: none;
+}
+
+
+/* ===== SCROLLBAR FOR POEM TEXT ===== */
+
+.poem-text::-webkit-scrollbar {
+    width: 6px;
+}
+
+.poem-text::-webkit-scrollbar-track {
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 3px;
+}
+
+.poem-text::-webkit-scrollbar-thumb {
+    background: rgba(139, 69, 19, 0.3);
+    border-radius: 3px;
+}
+
+.poem-text::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 69, 19, 0.5);
+}
+
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 1200px) {
+    .main-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .chapters {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 90%;
+        height: auto;
+        min-height: 200px;
+        margin-bottom: 30px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .chap-but {
+        padding: 10px;
+        margin: 5px;
+        width: auto;
+        min-width: 150px;
+    }
+    .book-cont {
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: none;
+        margin-top: 30px;
+    }
+    .navbar {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .book {
+        width: 280px;
+        height: 400px;
+    }
+    .poem-text {
+        font-size: 22px;
+        overflow-y: auto;
+        max-height: 85%;
+        padding: 0 10px;
+    }
+    .poem-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+    }
+    .navbar-cont {
+        font-size: 10px;
+        padding: 5px;
+        flex: 1 0 auto;
+        text-align: center;
+    }
+    .chapters {
+        width: 100%;
+        margin: 20px auto;
+    }
+    .book-cont {
+        gap: 10px;
+    }
+    #prev-btn,
+    #next-btn {
+        width: 50px;
+        height: 50px;
+    }
+    #prev-btn h1,
+    #next-btn h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .book {
+        width: 250px;
+        height: 350px;
+    }
+    .poem-text {
+        font-size: 20px;
+        max-height: 80%;
+    }
+    .poem-title {
+        font-size: 24px;
+    }
+    .chap-but {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+    .splash-screen,
+    .navbar,
+    .chapters,
+    .book-cont button {
+        display: none;
+    }
+    .book-cont {
+        position: static;
+        transform: none;
+        width: 100%;
+        height: auto;
+    }
+    .book {
+        width: 100%;
+        height: auto;
+        transform: none !important;
+    }
+    .paper {
+        position: relative;
+        page-break-after: always;
+        transform: none !important;
+    }
+    .front,
+    .back {
+        position: relative;
+        transform: none !important;
+        page-break-inside: avoid;
+    }
+    .flipped .front,
+    .flipped .back {
+        transform: none !important;
+    }
+}
+
+
+/* ===== UTILITIES ===== */
+
+.paper.front-cover .front-content h1 {
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Ensure back cover doesn't have weird height */
+
+.back-cover {
+    height: 100%;
+    /* override any previous height */
+}
+
+.brand {
+    /* font-family: "Bebas Neue"; */
+    font-family: "Cinzel";
+    color: #d4aeae;
+    position: absolute;
+    left: 2%;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+/* .splash-screen {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    background-color: #5f509a;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99999999;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #a389a8, #dd79cc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    filter: blur(10px);
+    /* initial blur */
+}
+
+.splash-text {
+    color: rgb(194, 179, 179);
+    font-size: 2.5rem;
+    font-family: "Cinzel", sans-serif;
+    letter-spacing: 2px;
+    font-style: normal;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.splash-text span {
+    opacity: 0;
+    display: inline-block;
+}
+
+
+/* Glow effect */
+
+.splash-text {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(175, 117, 117, 0.6), 0 0 40px rgba(108, 92, 231, 0.8);
+}

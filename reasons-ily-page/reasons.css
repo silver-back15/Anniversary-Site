@@ -1,0 +1,364 @@
+:root {
+    --bg1: #4383cc;
+    --bg2: #a0846c;
+    --note-bg: #fff9d9;
+    --accent: #ffb6c1;
+}
+
+body {
+    cursor: url('../pixheart.png'), auto;
+}
+
+
+/* Custom cursor for anything clickable */
+
+a,
+button,
+.menu-btn,
+input[type="button"],
+input[type="submit"],
+[onclick],
+[role="button"] {
+    cursor: url('../pixheart.png'), pointer;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Poppins, system-ui;
+    /* background: linear-gradient(180deg, var(--bg1), var(--bg2)); */
+    background-image: linear-gradient(to bottom, #051F20, #0B2B26, #163832, #235347, #8EB69B, #b1dbb8);
+}
+
+body {
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* background image (uploaded asset used as URL path) */
+
+.hero-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.08;
+    background: url('/mnt/data/A_webpage_design_features_a_love-themed_digital_la.png') center/cover no-repeat;
+    pointer-events: none;
+    filter: blur(6px) saturate(0.8);
+}
+
+.wrap {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 900px;
+}
+
+.tornado {
+    width: 520px;
+    height: 720px;
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.note {
+    position: absolute;
+    left: 50%;
+    /* Changed from left:50% top:50% */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* This centers the note itself */
+    width: 140px;
+    height: 110px;
+    padding: 12px;
+    background: var(--note-bg);
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    transform-origin: center center;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 15px;
+    color: #222;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: box-shadow .15s ease;
+}
+
+.note:focus {
+    outline: none;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+
+/* small controls top-left */
+
+.controls {
+    position: fixed;
+    z-index: 12;
+    right: 20px;
+    bottom: 20px;
+    /* Changed from top to bottom */
+    display: flex;
+    gap: 8px;
+}
+
+.controls button {
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(101, 150, 101, 0.85);
+    color: #333;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Cinzel";
+    font-size: 14px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.controls button:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Sidebar for read notes */
+
+
+/* Sidebar moved to left side */
+
+.sidebar {
+    position: fixed;
+    left: 20px;
+    /* Changed from right to left */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 240px;
+    max-height: 70vh;
+    overflow: auto;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+    z-index: 20;
+}
+
+
+/* Adjust the hover effect to move right instead of left */
+
+.sidebar h3 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+    font-family: Poppins;
+}
+
+.sidebar-note {
+    background: #fff;
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: 'Patrick Hand';
+    font-size: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transition: transform .12s ease, background .12s ease;
+}
+
+.sidebar-note:hover {
+    transform: translateX(6px);
+    /* Changed from -6px to 6px */
+    background: #fff5f8;
+}
+
+
+/* POPUP / MODAL */
+
+.popup-bg {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(6px);
+    z-index: 60;
+}
+
+.popup-box {
+    width: 460px;
+    max-width: 92%;
+    padding: 28px;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.28);
+    text-align: center;
+    transform: scale(0.86);
+    opacity: 0;
+}
+
+.popup-message {
+    font-family: 'Patrick Hand';
+    font-size: 24px;
+    color: #222;
+    line-height: 1.4;
+    margin-bottom: 18px;
+}
+
+#closePopup {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 26px rgba(255, 182, 193, 0.45);
+}
+
+
+/* small responsive */
+
+@media (max-width:720px) {
+    .tornado {
+        width: 360px;
+        height: 520px;
+    }
+    .note {
+        width: 128px;
+        height: 96px;
+        font-size: 14px;
+    }
+    .sidebar {
+        right: 10px;
+        width: 180px;
+        padding: 10px;
+    }
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 20px;
+    left: 52%;
+    transform: translateX(-50%);
+    z-index: 12;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 10px 20px;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-items {
+    color: #fff5f8;
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-items:hover {
+    color: #ffb6c1;
+}
+
+.nav-items::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffb6c1;
+    transition: width 0.3s ease, left 0.3s ease;
+    display: block;
+    /* This is crucial */
+}
+
+.nav-items:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-button {
+    position: relative;
+    display: inline-block;
+    color: #000;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: "Climate Crisis", sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width 0.3s ease, left 0.3s ease;
+    display: block;
+}
+
+.nav-button:hover {
+    color: #117a34;
+}
+
+.nav-button:hover::after {
+    width: 100%;
+    left: 0;
+    background: #4383cc;
+}
+
+.brand {
+    font-family: "Tangerine";
+    position: absolute;
+    top: 0%;
+}
+
+#col-notes {
+    font-family: "Cinzel";
+    color: #000;
+}
+
+.cont {
+    font-family: "Cinzel";
+}

@@ -1,0 +1,483 @@
+:root {
+    --bg1: #4383cc;
+    --bg2: #a0846c;
+    --note-bg: #fff9d9;
+    --accent: #ffb6c1;
+    --accent-deep: #ff8fa6;
+    --ink: #1a2a22;
+    --glass: rgba(255, 255, 255, 0.14);
+    --glass-border: rgba(255, 255, 255, 0.22);
+}
+
+body {
+    cursor: url('../pixheart.png'), auto;
+}
+
+
+/* Custom cursor for anything clickable */
+
+a,
+button,
+.menu-btn,
+input[type="button"],
+input[type="submit"],
+[onclick],
+[role="button"] {
+    cursor: url('../pixheart.png'), pointer;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Poppins, system-ui;
+    background-image: linear-gradient(to bottom, #051F20, #0B2B26, #163832, #235347, #8EB69B, #b1dbb8);
+    background-attachment: fixed;
+}
+
+body {
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+}
+
+
+/* ---------- ATMOSPHERE: grain + light blobs + vignette ---------- */
+
+
+/* film grain via SVG turbulence — adds tactile depth */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.09;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+
+/* drifting colored light blobs behind everything */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(closest-side at 22% 30%, rgba(255, 182, 193, 0.35), transparent 70%), radial-gradient(closest-side at 78% 70%, rgba(142, 182, 155, 0.45), transparent 70%), radial-gradient(closest-side at 50% 50%, rgba(255, 220, 170, 0.20), transparent 70%);
+    filter: blur(40px);
+    animation: drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(2%, -3%) scale(1.05);
+    }
+    100% {
+        transform: translate(-2%, 2%) scale(0.98);
+    }
+}
+
+
+/* vignette — pushes the center forward */
+
+.hero-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.wrap {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 900px;
+}
+
+
+/* soft glowing orb behind the tornado center */
+
+.wrap::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 380px;
+    height: 380px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.55) 0%, rgba(255, 182, 193, 0.15) 40%, transparent 70%);
+    filter: blur(30px);
+    pointer-events: none;
+    z-index: 0;
+    animation: pulse 5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+}
+
+.tornado {
+    width: 520px;
+    height: 720px;
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+
+/* ---------- NOTES: paper, tape, layered shadow ---------- */
+
+.note {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 110px;
+    padding: 12px;
+    background: linear-gradient(180deg, #fffce8 0%, #fff4c4 100%);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -10px 20px rgba(180, 150, 80, 0.08), 0 1px 2px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.12), 0 24px 48px rgba(0, 0, 0, 0.18);
+    transform-origin: center center;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 15px;
+    color: #2a2418;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: box-shadow .2s ease, filter .2s ease;
+}
+
+
+/* tape strip on the top edge of each note */
+
+.note::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 50px;
+    height: 16px;
+    background: rgba(255, 220, 180, 0.55);
+    border-left: 1px dashed rgba(255, 255, 255, 0.4);
+    border-right: 1px dashed rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+
+/* faint ruled lines so notes feel like real paper */
+
+.note::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background: repeating-linear-gradient( 180deg, transparent 0 20px, rgba(120, 90, 50, 0.06) 20px 21px);
+    pointer-events: none;
+}
+
+.note:hover {
+    filter: brightness(1.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 2px 4px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.18), 0 30px 60px rgba(255, 182, 193, 0.25);
+}
+
+.note:focus {
+    outline: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 16px 40px rgba(0, 0, 0, 0.22), 0 0 0 2px var(--accent);
+}
+
+
+/* ---------- CONTROLS ---------- */
+
+.controls {
+    position: fixed;
+    z-index: 12;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.controls button {
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: rgba(20, 50, 40, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #f3fff5;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 6px 18px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Cinzel";
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    transition: all 0.2s ease;
+}
+
+.controls button:hover {
+    background: rgba(255, 182, 193, 0.85);
+    color: #2a1a22;
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 10px 26px rgba(255, 182, 193, 0.4);
+}
+
+
+/* ---------- SIDEBAR ---------- */
+
+.sidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 240px;
+    max-height: 70vh;
+    overflow: auto;
+    padding: 18px 14px;
+    background: rgba(255, 249, 217, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 18px 50px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+}
+
+.sidebar h3 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    color: #2a2418;
+    font-weight: 700;
+    font-family: Poppins;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 8px;
+}
+
+.sidebar-note {
+    background: #fff;
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: 'Patrick Hand';
+    font-size: 14px;
+    color: #2a2418;
+    border-left: 3px solid var(--accent);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.sidebar-note:hover {
+    transform: translateX(6px);
+    background: #fff5f8;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 8px 18px rgba(255, 182, 193, 0.25);
+}
+
+
+/* ---------- POPUP ---------- */
+
+.popup-bg {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 25, 20, 0.55);
+    backdrop-filter: blur(8px);
+    z-index: 60;
+}
+
+.popup-box {
+    width: 460px;
+    max-width: 92%;
+    padding: 32px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fffce8 0%, #fff4c4 100%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 30px 70px rgba(0, 0, 0, 0.35), 0 0 80px rgba(255, 182, 193, 0.25);
+    text-align: center;
+    transform: scale(0.86);
+    opacity: 0;
+    position: relative;
+}
+
+.popup-box::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 90px;
+    height: 22px;
+    background: rgba(255, 200, 160, 0.6);
+    border-left: 1px dashed rgba(255, 255, 255, 0.5);
+    border-right: 1px dashed rgba(255, 255, 255, 0.5);
+}
+
+.popup-message {
+    font-family: 'Patrick Hand';
+    font-size: 24px;
+    color: #2a2418;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+#closePopup {
+    padding: 10px 22px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+    color: #fff;
+    font-weight: 700;
+    font-family: "Cinzel";
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 10px 26px rgba(255, 143, 166, 0.5);
+    transition: transform 0.15s ease;
+}
+
+#closePopup:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width:720px) {
+    .tornado {
+        width: 360px;
+        height: 520px;
+    }
+    .note {
+        width: 128px;
+        height: 96px;
+        font-size: 14px;
+    }
+    .sidebar {
+        right: 10px;
+        width: 180px;
+        padding: 10px;
+    }
+}
+
+
+/* ---------- NAV BAR ---------- */
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 12;
+    background: rgba(10, 30, 25, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 8px 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-button {
+    position: relative;
+    display: inline-block;
+    color: #f3fff5;
+    background: none;
+    border: none;
+    padding: 8px 4px;
+    cursor: pointer;
+    font-family: "Cinzel", serif;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    transition: color 0.3s ease;
+}
+
+.nav-button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease, left 0.3s ease;
+    display: block;
+}
+
+.nav-button:hover {
+    color: var(--accent);
+}
+
+.nav-button:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* ---------- BRAND ---------- */
+
+.brand {
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    margin: 0;
+    font-size: 110px;
+    line-height: 0.8;
+    color: #ffd6e0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), 0 0 30px rgba(255, 182, 193, 0.6), 0 0 60px rgba(255, 182, 193, 0.3);
+    z-index: 15;
+    pointer-events: none;
+}
+
+#col-notes {
+    font-family: "Cinzel";
+    color: #2a2418;
+}
+
+.cont {
+    font-family: "Cinzel";
+}

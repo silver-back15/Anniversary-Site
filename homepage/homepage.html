@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>JuSa | Everlasting Pages</title>
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Unbounded:wght@300;500;700&family=Style+Script&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homepage_new.css">
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <!-- INTRO OVERLAY -->
+    <div class="intro">
+        <div class="fadeInOut">
+            <h1>JuSa.com</h1>
+        </div>
+    </div>
+
+    <!-- Fixed title -->
+    <div class="title">
+        <h1 class="head"> JuSa </h1>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation-bar">
+        <button class="nav-button" onclick="location.href='#slideshow'">SLIDESHOW</button>
+        <button class="nav-button" onclick="location.href='#timer-sec'">TIMER</button>
+        <button class="nav-button" onclick="location.href='#menu'">MENU</button>
+    </div>
+
+    <!-- Hero -->
+    <div class="first-sec">
+        <h1 class="first-sec-text">Welcome to JuSa.com</h1>
+        <h3 class="first-sec-second-text">- You. Always You.</h3>
+        <h4 class="first-sec-third-text">Specially made for you. 💌</h4>
+    </div>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-whole" id="slideshow">
+        <div class="slideshow-img-container">
+            <img class="slideshow-img fade" src="../homepage/images/DESI TIMES_20251214_013935_0000.png" alt="Memory 1">
+            <img class="slideshow-img fade" src="../homepage/images/ELLE_20251214_012521_0000.png" alt="Memory 2">
+            <img class="slideshow-img fade" src="../homepage/images/Epitome of Beauty_20251214_141227_0000.png" alt="Memory 3">
+            <img class="slideshow-img fade" src="../homepage/images/ETERNA_20251214_143233_0000.png" alt="Memory 4">
+            <img class="slideshow-img fade" src="../homepage/images/GLAMOUR_20251214_142354_0000.png" alt="Memory 5">
+            <img class="slideshow-img fade" src="../homepage/images/MODEL OF THE YEAR_20250914_142537_0000.png" alt="Memory 6">
+            <img class="slideshow-img fade" src="../homepage/images/Simplicity as a statement_20251214_120701_0000.png" alt="Memory 7">
+            <img class="slideshow-img fade" src="../homepage/images/SAMANTHA WEEKLY_20251214_011008_0000.png" alt="Memory 8">
+            <img class="slideshow-img fade" src="../homepage/images/Soft. Intentional. Real._20251214_145944_0000.png" alt="Memory 9">
+            <img class="slideshow-img fade" src="../homepage/images/SPOTLIGHT_20251214_022416_0000.png" alt="Memory 10">
+            <img class="slideshow-img fade" src="../homepage/images/Straight out of a fairy tale_20251214_020230_0000.png" alt="Memory 11">
+            <img class="slideshow-img fade" src="../homepage/images/The Samantha Times_20251214_024233_0000.png" alt="Memory 12">
+            <button class="prev-btn" onclick="plusSlides(-1)">◀</button>
+        </div>
+    </div>
+
+    <!-- Timer Section -->
+    <div class="mid" id="timer-sec">
+        <div class="timer">
+            <p id="timer-title">✨ Time we've been magic ✨</p>
+            <div class="time-display">
+                <div class="block"><span class="timer-text">Years</span> <span class="years">00</span></div>
+                <div class="block"><span class="timer-text">Months</span> <span class="months">00</span></div>
+                <div class="block"><span class="timer-text">Days</span> <span class="days">00</span></div>
+                <div class="block"><span class="timer-text">Hours</span> <span class="hours">00</span></div>
+                <div class="block"><span class="timer-text">Minutes</span> <span class="minutes">00</span></div>
+                <div class="block"><span class="timer-text">Seconds</span> <span class="seconds">00</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENU CARDS (interactive links) -->
+    <div class="menu-list" id="menu">
+        <div class="leftmenu menu-font"><a class="a-tag" href="../lang-ily/lang.html">Love, Translated</a>
+            <p>words unsaid</p>
+        </div>
+        <div class="rightmenu menu-font"><a class="a-tag" href="../poem-page/poem.html">Velour Verses</a>
+            <p>soft words, wrapped in velvet</p>
+        </div>
+        <div class="leftmenu menu-font"><a class="a-tag" href="../floating-words/floating-words.html">Loose Petals</a>
+            <p>thoughts that never quite landed</p>
+        </div>
+        <div class="rightmenu menu-font"><a class="a-tag" href="../letters/letters-new.html">Dear You</a>
+            <p>heart on paper</p>
+        </div>
+        <div class="leftmenu menu-font"><a class="a-tag" href="../reasons-ily-page/reasons.html">The Long List</a>
+            <p>a list that keeps writing itself</p>
+        </div>
+        <div class="rightmenu menu-font"><a class="a-tag" href="../tv-room/index.html">TV ROOM</a>
+            <p>a list that keeps writing itself</p>
+        </div>
+        <div class="leftmenu menu-font"><a class="a-tag" href="../yt-lookalike/yt-look.html">JUDETUBE</a>
+            <p>me, singing, just for you(so skip)</p>
+        </div>
+        <div class="rightmenu menu-font"><a class="a-tag" href="../the-day-you-arrived/tdya.html">The Day you Arrived</a>
+            <p>What the world looked like when you entered</p>
+        </div>
+        <div class="leftmenu menu-font"><a class="a-tag" href="../final/final.html">🏁 FINALE</a>
+            <p>The End</p>
+        </div>
+    </div>
+    <script>
+        (function() {
+            const particleCount = 35;
+            const colors = ['#ffb7b2', '#ffd6c0', '#f6a7a1', '#e8a598', '#ffc8b0'];
+            for (let i = 0; i < particleCount; i++) {
+                let petal = document.createElement('div');
+                petal.innerHTML = '♥';
+                petal.style.position = 'fixed';
+                petal.style.color = colors[Math.floor(Math.random() * colors.length)];
+                petal.style.fontSize = (Math.random() * 20 + 12) + 'px';
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.top = '-50px';
+                petal.style.opacity = Math.random() * 0.6 + 0.3;
+                petal.style.pointerEvents = 'none';
+                petal.style.zIndex = '9999';
+                petal.style.filter = 'blur(0.6px)';
+                petal.style.animation = `fall ${Math.random() * 8 + 6}s linear infinite`;
+                petal.style.animationDelay = Math.random() * 15 + 's';
+                document.body.appendChild(petal);
+            }
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fall {
+                    0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+                    80% { opacity: 0.8; }
+                    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        })();
+    </script>
+
+    <script src="homepage.js"></script>
+    <script src="slideshow.js"></script>
+    <script src="timer.js"></script>
+</body>
+
+</html>

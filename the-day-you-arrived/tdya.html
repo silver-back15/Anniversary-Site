@@ -1,0 +1,822 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Day You Arrived</title>
+    <link rel="stylesheet" href="tdya_new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Bebas+Neue&family=Cinzel&family=Climate+Crisis:YEAR@1979&family=Julius+Sans+One&family=Limelight&family=Mea+Culpa&family=Monsieur+La+Doulaise&family=Righteous&family=Special+Elite&family=Tangerine:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- intro section -->
+    <div class="intro-section">
+        <h1 class="intro-text">
+            <span class="intro-text-1">"On March 2nd 2007, </span> <br>the world didn't know it's greatest blessing was born "
+        </h1>
+    </div>
+    <!-- celestial section -->
+    <div class="celestial-section">
+        <!-- <h1 class="cel-head">"The sky on your day"</h1>
+        <div class="cel-image"><img src="../the-day-you-arrived/images/14_moon.jpg"></div> -->
+        <section id="cosmos-section">
+            <div class="visual-container">
+                <div class="sky-background"></div>
+                <div class="stars-overlay"></div>
+
+                <div class="moon"><img src="../the-day-you-arrived/images/14_moon.jpg" alt=""></div>
+
+                <div class="constellation">
+                    <svg viewBox="0 0 100 100" width="100%" height="100%">
+        <circle cx="30" cy="20" r="1.5" fill="#fff"/>
+        <circle cx="50" cy="40" r="2" fill="#fff"/>
+        <circle cx="70" cy="30" r="1.5" fill="#fff"/>
+        <circle cx="60" cy="70" r="2" fill="#fff"/>
+        <line x1="30" y1="20" x2="50" y2="40" stroke="rgba(255,255,255,0.4)" stroke-width="0.5" />
+        <line x1="50" y1="40" x2="70" y2="30" stroke="rgba(255,255,255,0.4)" stroke-width="0.5" />
+        <line x1="50" y1="40" x2="60" y2="70" stroke="rgba(255,255,255,0.4)" stroke-width="0.5" />
+      </svg>
+                </div>
+            </div>
+
+            <div class="content-container">
+                <div class="spacer" style="height: 30vh;"></div>
+                <div class="content-block" id="trigger-moon">
+                    <h2>The Lunar Phase</h2>
+                    <p><strong>Illumination:</strong> 78% (Waxing Gibbous)</p>
+                    <p><strong>Distance from Earth:</strong> 384,400 km</p>
+                    <p>"This is the moon that watched the sky the night you were born, quietly keeping your first secret."</p>
+                </div>
+
+                <div class="content-block" id="trigger-stars">
+                    <h2>Orion's Belt & Star Map</h2>
+                    <p><strong>Visible Constellation:</strong> Orion</p>
+                    <p><strong>Brightest Star:</strong> Rigel & Betelgeuse</p>
+                    <p>"The same stars that mapped the sky that night are still tracing the same shapes tonight."</p>
+                </div>
+
+                <div class="spacer" style="height: 50vh;"></div>
+            </div>
+        </section>
+
+    </div>
+    <!-- supermarket section -->
+    <div class="supermarket-sec">
+
+        <div class="store-header">
+            <h1>✦ JuSa Emporium ✦</h1>
+            <p>— vintage billing co. — est. 2020</p>
+        </div>
+        <img class="kitkat" src="../the-day-you-arrived/images/Joël_Penkman___KitKat-removebg-preview.png" alt="" srcset="">
+        <img src="../the-day-you-arrived/images/download__1_-removebg-preview.png" alt="" class="octo">
+        <div class="billing-machine" id="billingMachine">
+            <div class="machine-top">
+                <button class="brass-button" id="dingBtn">🔔</button>
+                <button class="brass-button" id="printBtn">🧾</button>
+            </div>
+            <div class="paper-roll">
+                <div class="receipt-wrapper">
+                    <div class="receipt-paper" id="receiptPaper">
+                        <!-- Receipt lines will be dynamically printed here -->
+                        <div style="text-align: center; opacity: 0.7;">📠 scroll to print 📠</div>
+                        <div style="text-align: center; font-size: 0.7rem;">↓ keep scrolling ↓</div>
+                    </div>
+                    <div class="cursor-blink" id="blinkCursor" style="margin-left: 0; margin-top: 6px;"></div>
+                </div>
+            </div>
+            <div class="cash-drawer"></div>
+            <div class="scroll-hint">
+                ⬇️ SCROLL DOWN — PRINTING LOVE RECEIPT ⬇️
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+    </div>
+    <!-- music section -->
+    <div class="music-sec">
+        <div class="music-head">
+            <h1 class="music-title">Frequencies of &#x27;07</h1>
+        </div>
+        <div class="music-body">
+            <!-- CD images: slide in from left on scroll -->
+            <img class="cd-case" src="../the-day-you-arrived/images/Untitled design_20260601_024222_0000.png" alt="CD Case">
+            <img class="cd" src="../the-day-you-arrived/images/sticker_wall_decor___A_evolu__o_do_armazenamento_de_m_sicas__infogr_fico_-removebg-preview.png" alt="CD">
+            <!-- Decorative images: tl-img top, starimg + sunflower + cloud bottom — all slide in -->
+            <img class="tl-img music-deco" src="../the-day-you-arrived/images/Highlight_Cover-removebg-preview.png" alt="">
+            <img class="starimg music-deco" src="../the-day-you-arrived/images/star.png" alt="">
+            <img class="sunflower music-deco" src="../the-day-you-arrived/images/sunflower.png" alt="">
+            <img class="cloud music-deco" src="../the-day-you-arrived/images/download__2_-removebg-preview.png" alt="">
+            <!-- Tracklist panel: right side, items fade in on scroll -->
+            <div class="music-list">
+                <div class="tracklist-header">
+                    <span class="tracklist-label">&#9836; Top Tracks of 2007</span>
+                </div>
+                <ol class="tracklist">
+                    <li>Say It Right</li>
+                    <li>Irreplaceable</li>
+                    <li>Hey There Delilah</li>
+                    <li>What Goes Around Comes Around</li>
+                    <li>Beautiful Girls</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- tv section -->
+    <div class="tv-sec">
+        <div class="tv-body">
+            <section class="crt-section" aria-label="CRT video player">
+                <h2 class="crt-title">Channel of 2007<br>(Doesnt work but open internet explorer in the desktop section)</h2>
+
+                <div class="crt-monitor">
+                    <div class="crt-screen">
+                        <video id="crt-video" playsinline loop muted preload="metadata"></video>
+                        <div class="crt-scan"></div>
+                    </div>
+                    <div class="crt-power">
+                        <span class="crt-power-led"></span><span>Power</span>
+                    </div>
+                </div>
+
+                <div class="crt-controls" id="crt-controls">
+                    <button type="button" class="crt-btn" id="crt-play">▶ Play</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- newspaper sec -->
+    <div class="news-sec">
+        <div class="news-head"></div>
+        <div class="news-body">
+            <section class="newspaper-section">
+                <div class="newspaper-sticky" id="sticky">
+
+                    <div id="paper-wrap">
+                        <div class="fold-container">
+
+                            <!-- TOP HALF -->
+                            <div class="fold-top" id="fold-top">
+                                <div class="paper">
+                                    <div class="paper-inner">
+
+                                        <!-- Masthead -->
+                                        <div class="masthead">
+                                            <div class="paper-name">The Greatest Blessing</div>
+                                            <div class="paper-sub">
+                                                <span>Vol. CXLVII — No. 218</span>
+                                                <span>★ ★ ★ CITY EDITION ★ ★ ★</span>
+                                                <span>Price: Two Pence</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="edition-rule">
+                                            <hr/><span>Friday, 2nd March, 2007</span>
+                                            <hr/>
+                                        </div>
+
+                                        <!-- Main columns -->
+                                        <div class="columns col-main-side" style="align-items: start;">
+
+                                            <!-- Left: hero story -->
+                                            <div class="col-divider" style="padding-right: 18px;">
+                                                <div class="section-label">Breaking News</div>
+                                                <div class="headline headline-xl">Earth Welcomes A New Light ~Samantha~<br></div>
+                                                <div class="byline">A tiny arrival creates a lifetime of memories</div>
+                                                <div class="deck">While the world continued with its usual headlines, millions of stories unfolding across the planet, one of the most important moments happened quietly.</div>
+
+                                                <div class="columns col-3" style="align-items: start;">
+                                                    <div class="col-divider" style="padding-right: 10px;">
+                                                        <p class="body-text">On March 2nd 2007, while the world started doing its daily chores, it was unaware of the fact that it's greatest blessing just set her presence on Earth.</p>
+                                                        <p class="body-text">Entered the world with so much of charisma and beauty woven together, making hearts warm, making mouths smile like they've never did in their entire life.</p>
+                                                    </div>
+                                                    <div class="col-divider" style="padding-right: 10px;">
+                                                        <div class="img-block" style="height: 80px;"><img src="../test 2/14_moon.jpg" alt=""></div>
+                                                        <p class="body-text">Wrapped in a yellow cloth, her mum saw what the most beautiful human being in the world would look like, held by her nani and kissed, and the good news being shared to her father, immensely loved
+                                                            by her cousins.</p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="body-text">The world kept moving that day. Songs played on the radio, movies filled theatres, and people went about their lives. But somewhere, a new laugh was heard for the first time. A new smile existed.
+                                                            A new chapter began. The biggest story of March 2nd, 2007 was never printed. Until now.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Right: two side stories -->
+                                            <div style="padding-left: 8px;">
+                                                <div class="section-label">World</div>
+                                                <div class="headline" style="font-size: 1rem;">Prodi Wins<br>Confidence<br>Vote in Italy</div>
+                                                <div class="byline">By Our Rome Correspondent</div>
+                                                <p class="body-text">Italian Prime Minister Romano Prodi was reinstated yesterday after winning his second and final confidence vote in Parliament, ending a political crisis that began when he resigned over a foreign policy
+                                                    defeat the week prior.</p>
+
+                                                <hr class="divider-h" style="margin: 14px 0;" />
+
+                                                <div class="section-label">Markets</div>
+                                                <div class="headline" style="font-size: 1rem;">Stocks Slide<br>Continues</div>
+                                                <div class="byline">By Our Finance Desk</div>
+                                                <p class="body-text">Prices at the New York and Toronto Stock Exchanges continued to drop today, extending a sell-off that began earlier in the week and rattled investors worldwide.</p>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.columns -->
+
+                                    </div>
+                                    <!-- /.paper-inner top -->
+                                    <div class="crease-shadow"></div>
+                                </div>
+                                <!-- /.paper -->
+                            </div>
+                            <!-- /.fold-top -->
+
+                            <!-- BOTTOM HALF -->
+                            <div class="fold-bottom" id="fold-bottom">
+                                <div class="paper">
+                                    <div class="crease-shadow"></div>
+                                    <div class="paper-inner">
+
+                                        <div class="columns col-4" style="align-items: start;">
+
+                                            <!-- col 1 -->
+                                            <div class="col-divider" style="padding-right: 14px;">
+                                                <div class="section-label">Weather</div>
+                                                <div class="headline" style="font-size: 0.9rem;">Deadly Tornadoes Strike South and Midwest</div>
+                                                <p class="body-text">At least 17 people were killed as powerful tornadoes tore through Alabama and Georgia, with seven deaths reported in Alabama and nine in Georgia. Recovery efforts are underway across both states.</p>
+                                            </div>
+
+                                            <!-- col 2 -->
+                                            <div class="col-divider" style="padding-right: 14px;">
+                                                <div class="section-label">Cuba</div>
+                                                <div class="headline" style="font-size: 0.9rem;">Castro Recovering, Says Foreign Minister</div>
+                                                <p class="body-text">Cuban Foreign Minister Felipe Pérez Roque said yesterday that Fidel Castro is recovering from his illness and could return to lead the country once more.</p>
+                                            </div>
+
+                                            <!-- col 3 -->
+                                            <div class="col-divider" style="padding-right: 14px;">
+                                                <div class="section-label">Defense</div>
+                                                <div class="headline" style="font-size: 0.9rem;">New Warhead Design Selected</div>
+                                                <p class="body-text">The Bush administration has selected a design from Lawrence Livermore National Laboratory for a new generation of nuclear warheads intended to replace the Trident missile system by 2012.</p>
+                                            </div>
+
+                                            <!-- col 4 -->
+                                            <div>
+                                                <div class="section-label">Correspondence</div>
+                                                <div class="headline" style="font-size: 0.9rem;">Letters to<br>the Editor</div>
+                                                <p class="body-text"><strong>On today's arrival:</strong> "Some headlines fade by the next edition. Others turn out to be the only ones that mattered."<br>— A Well-Wisher</p>
+                                            </div>
+
+                                        </div>
+
+                                        <hr class="divider-h thick" style="margin: 14px 0 10px;" />
+
+                                        <!-- Small ads -->
+                                        <div class="ad-row">
+                                            <div class="ad-box">
+                                                <div class="ad-title">Paxton & Sons</div>
+                                                <div class="ad-copy">Fine Mechanical Instruments since 1887. Chronometers, barometers, and precision scales. 14 Cornhill, London.</div>
+                                            </div>
+                                            <div class="ad-box">
+                                                <div class="ad-title">Rome Bureau</div>
+                                                <div class="ad-copy">Full coverage of today's confidence vote available in tomorrow's edition. Subscribe for daily delivery.</div>
+                                            </div>
+                                            <div class="ad-box">
+                                                <div class="ad-title">The Criterion</div>
+                                                <div class="ad-copy">Dinner served nightly until eleven. Private dining available. Piccadilly. Book: 0207 000 0222.</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- /.paper-inner bottom -->
+                                </div>
+                                <!-- /.paper -->
+                            </div>
+                            <!-- /.fold-bottom -->
+
+                        </div>
+                        <!-- /.fold-container -->
+                    </div>
+                    <!-- /#paper-wrap -->
+
+                    <!-- Scroll hint (fades out once animation starts) -->
+                    <div class="scroll-hint" id="scroll-hint">
+                        <span>Scroll</span>
+                        <div class="scroll-arrow"></div>
+                    </div>
+
+                </div>
+                <!-- /.newspaper-sticky -->
+            </section>
+        </div>
+    </div>
+
+    <!-- desktop section -->
+    <div id="desktop" onclick="closeStartMenu(event)">
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" style="top:20px;left:20px" ondblclick="openWin('win-mycomp')" onclick="selectIcon(this)">
+            <div class="di-img">🖥️</div>
+            <div class="di-label">My Computer</div>
+        </div>
+        <div class="desktop-icon" style="top:110px;left:20px" ondblclick="openWin('win-notepad')" onclick="selectIcon(this)">
+            <div class="di-img">📝</div>
+            <div class="di-label">Notepad</div>
+        </div>
+        <div class="desktop-icon" style="top:200px;left:20px" ondblclick="openWin('win-recycle')" onclick="selectIcon(this)">
+            <div class="di-img">🗑️</div>
+            <div class="di-label">Recycle Bin</div>
+        </div>
+        <div class="desktop-icon" style="top:290px;left:20px" ondblclick="openWin('win-ie')" onclick="selectIcon(this)">
+            <div class="di-img">🌐</div>
+            <div class="di-label">Internet Explorer</div>
+        </div>
+
+        <!-- MY COMPUTER -->
+        <div class="win" id="win-mycomp" style="top:60px;left:120px;width:480px">
+            <div class="win-titlebar" onmousedown="startDrag(event,'win-mycomp')">
+                <span class="win-titlebar-ico">🖥️</span>
+                <span class="win-titlebar-title">My Computer</span>
+                <div class="win-controls">
+                    <div class="wc-btn wc-min" onclick="minimizeWin('win-mycomp')">_</div>
+                    <div class="wc-btn wc-max">□</div>
+                    <div class="wc-btn wc-close" onclick="closeWin('win-mycomp')">✕</div>
+                </div>
+            </div>
+            <div class="win-menubar">
+                <div class="mb-item">File</div>
+                <div class="mb-item">Edit</div>
+                <div class="mb-item">View</div>
+                <div class="mb-item">Favorites</div>
+                <div class="mb-item">Tools</div>
+                <div class="mb-item">Help</div>
+            </div>
+            <div class="win-toolbar">
+                <button class="tb-navbtn">◀ Back</button>
+                <button class="tb-navbtn">▶ Forward</button>
+                <button class="tb-navbtn">↑ Up</button>
+            </div>
+            <div class="win-body">
+                <div class="mycomp-body">
+                    <div class="mycomp-item">
+                        <div class="ico">💾</div>
+                        <div class="lbl">Local Disk (C:)</div>
+                    </div>
+                    <div class="mycomp-item">
+                        <div class="ico">💿</div>
+                        <div class="lbl">DVD Drive (D:)</div>
+                    </div>
+                    <div class="mycomp-item">
+                        <div class="ico">🖨️</div>
+                        <div class="lbl">Printers</div>
+                    </div>
+                    <div class="mycomp-item">
+                        <div class="ico">🔌</div>
+                        <div class="lbl">Control Panel</div>
+                    </div>
+                    <div class="mycomp-item">
+                        <div class="ico">🌐</div>
+                        <div class="lbl">My Network</div>
+                    </div>
+                    <div class="mycomp-item">
+                        <div class="ico">📁</div>
+                        <div class="lbl">Shared Docs</div>
+                    </div>
+                    <div class="mycomp-item">
+                        <div class="ico">🗃️</div>
+                        <div class="lbl">My Documents</div>
+                    </div>
+                    <div class="mycomp-item">
+                        <div class="ico">🖼️</div>
+                        <div class="lbl">My Pictures</div>
+                    </div>
+                </div>
+            </div>
+            <div class="win-statusbar"><span class="sb-seg">8 objects</span><span>My Computer</span></div>
+        </div>
+
+        <!-- NOTEPAD -->
+        <div class="win" id="win-notepad" style="top:80px;left:180px;width:420px;height:320px">
+            <div class="win-titlebar" onmousedown="startDrag(event,'win-notepad')">
+                <span class="win-titlebar-ico">📝</span>
+                <span class="win-titlebar-title">Untitled - Notepad</span>
+                <div class="win-controls">
+                    <div class="wc-btn wc-min" onclick="minimizeWin('win-notepad')">_</div>
+                    <div class="wc-btn wc-max">□</div>
+                    <div class="wc-btn wc-close" onclick="closeWin('win-notepad')">✕</div>
+                </div>
+            </div>
+            <div class="win-menubar">
+                <div class="mb-item">File</div>
+                <div class="mb-item">Edit</div>
+                <div class="mb-item">Format</div>
+                <div class="mb-item">View</div>
+                <div class="mb-item">Help</div>
+            </div>
+            <div class="win-body">
+                <textarea class="notepad-area" spellcheck="false" placeholder="Type something..."></textarea>
+            </div>
+        </div>
+
+        <!-- RECYCLE BIN -->
+        <div class="win" id="win-recycle" style="top:100px;left:200px;width:380px;height:260px">
+            <div class="win-titlebar" onmousedown="startDrag(event,'win-recycle')">
+                <span class="win-titlebar-ico">🗑️</span>
+                <span class="win-titlebar-title">Recycle Bin</span>
+                <div class="win-controls">
+                    <div class="wc-btn wc-min" onclick="minimizeWin('win-recycle')">_</div>
+                    <div class="wc-btn wc-max">□</div>
+                    <div class="wc-btn wc-close" onclick="closeWin('win-recycle')">✕</div>
+                </div>
+            </div>
+            <div class="win-menubar">
+                <div class="mb-item">File</div>
+                <div class="mb-item">Edit</div>
+                <div class="mb-item">View</div>
+                <div class="mb-item">Help</div>
+            </div>
+            <div class="win-body" style="align-items:center;justify-content:center;gap:10px;padding:20px;flex:1">
+                <div style="font-size:48px">🗑️</div>
+                <div style="font-size:12px;color:#666;text-align:center">The Recycle Bin is empty.<br><br>To delete items, drag them to the Recycle Bin.</div>
+                <button class="xp-btn" style="opacity:.5;cursor:not-allowed;margin-top:10px">Empty Recycle Bin</button>
+            </div>
+            <div class="win-statusbar"><span>0 objects (0 bytes)</span></div>
+        </div>
+
+        <!-- INTERNET EXPLORER -->
+        <div class="win" id="win-ie" style="top:30px;left:80px;width:940px;height:650px">
+            <div class="win-titlebar" onmousedown="startDrag(event,'win-ie')">
+                <span class="win-titlebar-ico">🌐</span>
+                <span class="win-titlebar-title" id="ie-title">YouTube - Broadcast Yourself — Microsoft Internet Explorer</span>
+                <div class="win-controls">
+                    <div class="wc-btn wc-min" onclick="minimizeWin('win-ie')">_</div>
+                    <div class="wc-btn wc-max">□</div>
+                    <div class="wc-btn wc-close" onclick="closeWin('win-ie')">✕</div>
+                </div>
+            </div>
+            <div class="win-menubar">
+                <div class="mb-item">File</div>
+                <div class="mb-item">Edit</div>
+                <div class="mb-item">View</div>
+                <div class="mb-item">Favorites</div>
+                <div class="mb-item">Tools</div>
+                <div class="mb-item">Help</div>
+            </div>
+            <div class="win-toolbar">
+                <button class="tb-navbtn">◀ Back ▼</button>
+                <button class="tb-navbtn">▶ Forward</button>
+                <button class="tb-navbtn">✕ Stop</button>
+                <button class="tb-navbtn">↻ Refresh</button>
+                <button class="tb-navbtn">🏠 Home</button>
+                <div style="width:8px"></div>
+                <div class="ie-addr-wrap">
+                    <span style="font-size:11px;white-space:nowrap">Address</span>
+                    <input class="addr-bar" id="ie-addr" value="http://www.youtube.com/watch?v=dQw4w9WgXcQ" readonly/>
+                    <button class="ie-go-btn">Go</button>
+                </div>
+            </div>
+            <!-- YouTube player page -->
+            <div class="win-body" style="padding:0;overflow:hidden">
+                <div id="yt-frame">
+
+                    <!-- YT Header -->
+                    <div class="yt-header">
+                        <div class="yt-logo"><span class="you">You</span><span class="tube">Tube</span></div>
+                        <div class="yt-logo-sub">Broadcast Yourself™</div>
+                        <div style="flex:1"></div>
+                        <div class="yt-search-wrap">
+                            <input class="yt-search" type="text" placeholder="Search" />
+                            <button class="yt-search-btn">Search</button>
+                        </div>
+                        <div class="yt-header-links">
+                            <span class="yt-hlink">Sign In</span>
+                            <span style="color:rgba(255,255,255,0.5)">|</span>
+                            <span class="yt-hlink">Sign Up</span>
+                        </div>
+                    </div>
+
+                    <!-- Nav -->
+                    <div class="yt-nav">
+                        <span class="yt-nav-item">Home</span>
+                        <span class="yt-nav-item active">Videos</span>
+                        <span class="yt-nav-item">Channels</span>
+                        <span class="yt-nav-item">Community</span>
+                        <span class="yt-nav-item" style="border-right:none">Upload</span>
+                    </div>
+
+                    <!-- Breadcrumb -->
+                    <div style="background:#f8f8f8;border-bottom:1px solid #e0e0e0;padding:4px 10px;font-size:11px;color:#666">
+                        <span style="color:#0066cc;cursor:pointer">Home</span> &rsaquo;
+                        <span style="color:#0066cc;cursor:pointer">Videos</span> &rsaquo;
+                        <span id="yt-breadcrumb">Untitled</span>
+                    </div>
+
+                    <!-- Player layout -->
+                    <div class="yt-player-layout">
+
+                        <!-- LEFT -->
+                        <div class="yt-player-main">
+
+                            <!-- Video screen -->
+                            <div id="yt-player-screen">
+                                <!-- Real HTML5 video element -->
+                                <video id="yt-real-video" style="position:absolute;inset:0;width:100%;height:calc(100% - 36px);object-fit:contain;background:#000;display:none;z-index:1" playsinline></video>
+                                <!-- Thumbnail shown before video loads -->
+                                <div id="yt-player-thumb-bg"></div>
+                                <!-- Big play button overlay (hidden once video plays) -->
+                                <div id="yt-play-overlay">
+                                    <div id="yt-big-play">&#9654;</div>
+                                </div>
+                                <div class="yt-controls">
+                                    <div class="yt-progress-track" onclick="scrubTo(event)">
+                                        <div class="yt-progress-loaded"></div>
+                                        <div class="yt-progress-played" id="yt-played"></div>
+                                        <div class="yt-progress-thumb" id="yt-pthumb"></div>
+                                    </div>
+                                    <div class="yt-ctrl-row">
+                                        <span class="yt-ctrl-btn" id="yt-playpause" onclick="togglePlay()">&#9654;</span>
+                                        <span class="yt-ctrl-btn" style="font-size:10px">&#128264;</span>
+                                        <div class="yt-vol-track" onclick="scrubVol(event)" style="cursor:pointer">
+                                            <div class="yt-vol-fill" id="yt-vol-fill"></div>
+                                        </div>
+                                        <span class="yt-ctrl-time" id="yt-timecode">0:00 / 0:00</span>
+                                        <div style="flex:1"></div>
+                                        <span class="yt-ctrl-label">YouTube</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Info below player -->
+                            <div class="yt-video-info">
+                                <div class="yt-video-info-top">
+                                    <div style="flex:1">
+                                        <div class="yt-watch-title" id="yt-watch-title">Upload your first video to get started</div>
+                                        <div class="yt-watch-meta">
+                                            <span id="yt-watch-views">— views</span>
+                                            <span style="margin:0 5px;color:#ccc">|</span>
+                                            <span id="yt-watch-date">—</span>
+                                            <span style="margin:0 5px;color:#ccc">|</span> From: <span style="color:#0066cc;cursor:pointer" id="yt-watch-channel">—</span>
+                                        </div>
+                                    </div>
+                                    <div class="yt-rate-row">
+                                        <span style="font-size:10px;color:#666;margin-right:3px">Rate:</span>
+                                        <span class="yt-star" onclick="setRating(1)">&#9733;</span>
+                                        <span class="yt-star" onclick="setRating(2)">&#9733;</span>
+                                        <span class="yt-star" onclick="setRating(3)">&#9733;</span>
+                                        <span class="yt-star" onclick="setRating(4)">&#9733;</span>
+                                        <span class="yt-star" onclick="setRating(5)">&#9733;</span>
+                                    </div>
+                                </div>
+                                <div class="yt-desc-box" id="yt-watch-desc">Click any video slot on the right sidebar to upload your content and set it as the currently playing video.</div>
+                                <div class="yt-action-links">
+                                    <span class="yt-alink">&#128279; Share</span>
+                                    <span class="yt-alink">&#128190; Save to Favorites</span>
+                                    <span class="yt-alink">&#9873; Flag</span>
+                                    <span style="margin-left:auto;font-size:10px;color:#999">Category: <span id="yt-watch-cat">—</span></span>
+                                </div>
+                                <!-- Comments -->
+                                <div class="yt-comments-section">
+                                    <div class="yt-comments-title">Comments &amp; Responses (3)</div>
+                                    <div class="yt-comment-input-row">
+                                        <span style="color:#666;font-size:11px">Share your thoughts — </span>
+                                        <a style="color:#0066cc;font-size:11px;cursor:pointer">Sign in</a>
+                                        <span style="font-size:11px;color:#666"> to post a comment.</span>
+                                    </div>
+                                    <div class="yt-comment"><span class="yt-comment-user">lonelygirl15</span><span class="yt-comment-text">omg this is SO good!! subscribed!! :)</span></div>
+                                    <div class="yt-comment"><span class="yt-comment-user">xXDarkEdgeXx</span><span class="yt-comment-text">first!!!! lolol</span></div>
+                                    <div class="yt-comment"><span class="yt-comment-user">guitarHero2006</span><span class="yt-comment-text">epic vid dude, added to my favorites</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.yt-player-main -->
+
+                        <!-- RIGHT SIDEBAR -->
+                        <div class="yt-player-sidebar">
+
+
+                            <div class="yt-sugg-label">Now Playing</div>
+                            <div class="yt-sugg-card yt-sugg-nowplaying" id="sugg-0" onclick="handleSuggClick(0)">
+                                <div class="yt-sugg-thumb" id="sugg-thumb-0">
+                                    <div class="yt-sugg-thumb-placeholder">&#9654;<br><span style="font-size:9px;margin-top:3px;display:block">upload</span></div>
+                                </div>
+                                <div class="yt-sugg-info">
+                                    <div class="yt-sugg-title" id="sugg-title-0">Video slot 1</div>
+                                    <div class="yt-sugg-meta" id="sugg-meta-0">— · 0:00</div>
+                                    <div class="yt-sugg-views" id="sugg-views-0">0 views</div>
+                                </div>
+                            </div>
+
+                            <div class="yt-sugg-label" style="margin-top:10px">Up Next</div>
+
+                            <div class="yt-sugg-card" id="sugg-1" onclick="handleSuggClick(1)">
+                                <div class="yt-sugg-thumb" id="sugg-thumb-1">
+                                    <div class="yt-sugg-thumb-placeholder">&#9654;<br><span style="font-size:9px;margin-top:3px;display:block">upload</span></div>
+                                </div>
+                                <div class="yt-sugg-info">
+                                    <div class="yt-sugg-title" id="sugg-title-1">Video slot 2</div>
+                                    <div class="yt-sugg-meta" id="sugg-meta-1">— · 0:00</div>
+                                    <div class="yt-sugg-views" id="sugg-views-1">0 views</div>
+                                </div>
+                            </div>
+
+                            <div class="yt-sugg-card" id="sugg-2" onclick="handleSuggClick(2)">
+                                <div class="yt-sugg-thumb" id="sugg-thumb-2">
+                                    <div class="yt-sugg-thumb-placeholder">&#9654;<br><span style="font-size:9px;margin-top:3px;display:block">upload</span></div>
+                                </div>
+                                <div class="yt-sugg-info">
+                                    <div class="yt-sugg-title" id="sugg-title-2">Video slot 3</div>
+                                    <div class="yt-sugg-meta" id="sugg-meta-2">— · 0:00</div>
+                                    <div class="yt-sugg-views" id="sugg-views-2">0 views</div>
+                                </div>
+                            </div>
+
+                            <!-- Static filler -->
+                            <div style="margin-top:12px;border-top:1px solid #e0e0e0;padding-top:8px">
+                                <div class="yt-sugg-label">Related Videos</div>
+                                <div class="yt-sugg-card" style="cursor:default;opacity:.65">
+                                    <div class="yt-sugg-thumb" style="display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-size:18px">▶</div>
+                                    <div class="yt-sugg-info">
+                                        <div class="yt-sugg-title">Evolution of Dance</div>
+                                        <div class="yt-sugg-meta">judsonlaipply · 6:00</div>
+                                        <div class="yt-sugg-views">52,014,806 views</div>
+                                    </div>
+                                </div>
+                                <div class="yt-sugg-card" style="cursor:default;opacity:.65">
+                                    <div class="yt-sugg-thumb" style="display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-size:18px">▶</div>
+                                    <div class="yt-sugg-info">
+                                        <div class="yt-sugg-title">Charlie Bit My Finger</div>
+                                        <div class="yt-sugg-meta">HDCYT · 0:56</div>
+                                        <div class="yt-sugg-views">49,882,311 views</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.yt-player-sidebar -->
+
+                    </div>
+                    <!-- /.yt-player-layout -->
+
+                    <div class="yt-footer">
+                        <a>About</a><a>Terms</a><a>Privacy</a><a>Safety</a><a>Send Feedback</a>
+                        <div style="margin-top:4px">© 2007 YouTube, LLC</div>
+                    </div>
+
+                </div>
+                <!-- /#yt-frame -->
+            </div>
+            <div class="win-statusbar">
+                <span class="sb-seg">🔒</span><span class="sb-seg">Done</span>
+                <span>Internet</span><span style="margin-left:auto">🔍 100%</span>
+            </div>
+        </div>
+        <!-- /#win-ie -->
+
+        <!-- TASKBAR -->
+        <div id="taskbar">
+            <div id="start-btn" onclick="toggleStartMenu(event)">
+                <div class="start-logo"></div>start
+            </div>
+            <div class="tb-sep"></div>
+            <div id="quicklaunch">
+                <div class="ql-btn" title="Show Desktop" onclick="minimizeAll()">🖥️</div>
+                <div class="ql-btn" title="Internet Explorer" ondblclick="openWin('win-ie')">🌐</div>
+            </div>
+            <div class="tb-sep"></div>
+            <div id="tb-apps" style="display:flex;gap:3px;align-items:center;padding:0 4px;flex:1;overflow:hidden"></div>
+            <div id="systray">
+                <span style="font-size:14px">🔊</span>
+                <span style="font-size:14px">📶</span>
+                <div id="clock">12:00<br>PM</div>
+            </div>
+        </div>
+
+        <!-- START MENU -->
+        <div id="start-menu">
+            <div class="sm-top">
+                <div class="sm-avatar">👤</div>
+                <div class="sm-username">User</div>
+            </div>
+            <div class="sm-cols">
+                <div class="sm-left">
+                    <div class="sm-item" onclick="openWin('win-ie');closeStartMenu()"><span class="sm-item-ico">🌐</span>Internet Explorer</div>
+                    <div class="sm-item"><span class="sm-item-ico">📧</span>Outlook Express</div>
+                    <div class="sm-sep"></div>
+                    <div class="sm-item" onclick="openWin('win-mycomp');closeStartMenu()"><span class="sm-item-ico">🖥️</span>My Computer</div>
+                    <div class="sm-item" onclick="openWin('win-notepad');closeStartMenu()"><span class="sm-item-ico">📝</span>Notepad</div>
+                    <div class="sm-item"><span class="sm-item-ico">🎵</span>Windows Media Player</div>
+                    <div class="sm-sep"></div>
+                    <div class="sm-all-progs">All Programs <span>▶</span></div>
+                </div>
+                <div class="sm-right">
+                    <div class="sm-item"><span class="sm-item-ico">📁</span>My Documents</div>
+                    <div class="sm-item"><span class="sm-item-ico">🖼️</span>My Pictures</div>
+                    <div class="sm-item"><span class="sm-item-ico">🎵</span>My Music</div>
+                    <div class="sm-sep"></div>
+                    <div class="sm-item"><span class="sm-item-ico">🖥️</span>My Computer</div>
+                    <div class="sm-sep"></div>
+                    <div class="sm-item"><span class="sm-item-ico">⚙️</span>Control Panel</div>
+                    <div class="sm-item"><span class="sm-item-ico">❓</span>Help &amp; Support</div>
+                    <div class="sm-item"><span class="sm-item-ico">🔍</span>Search</div>
+                    <div class="sm-sep"></div>
+                    <div class="sm-item"><span class="sm-item-ico">⚡</span>Run...</div>
+                </div>
+            </div>
+            <div class="sm-bottom">
+                <div class="sm-bot-btn">🔴 Turn Off Computer</div>
+                <div class="sm-bot-btn">🔄 Log Off</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /#desktop -->
+
+    <!-- letter sec -->
+    <section class="letter-section" id="letter-section">
+        <div class="letter-sticky" id="sticky">
+
+            <!-- CRUMPLE BALL -->
+            <div id="crumple-ball">
+                <div class="crumple-core">
+                    <div class="crease c1"></div>
+                    <div class="crease c2"></div>
+                    <div class="crease c3"></div>
+                    <div class="crease c4"></div>
+                    <div class="crease c5"></div>
+                    <div class="crease c6"></div>
+                    <div class="crease c7"></div>
+                    <div class="crease c8"></div>
+                    <div class="facet f1"></div>
+                    <div class="facet f2"></div>
+                    <div class="facet f3"></div>
+                </div>
+            </div>
+
+            <!-- FLAT LETTER -->
+            <div id="letter">
+                <div class="letter-paper ruled" id="letter-paper">
+
+                    <!-- Fold crease marks (three-fold letter) -->
+                    <div class="fold-mark" style="top:33.3%"></div>
+                    <div class="fold-mark" style="top:66.6%"></div>
+
+                    <div class="letter-inner">
+
+                        <div class="seal-area">
+                            <div class="wax-seal">J</div>
+                            <div class="date-loc">
+                                <br> 2nd March of 2007
+                            </div>
+                        </div>
+
+
+                        <div class="salutation">Dearest Lil Samantha,</div>
+
+                        <div class="letter-body">
+                            <p>Thank you so much for being born. Right now, you probably don't know how much the world is going to change around you. You don't know the people you'll meet, the memories you'll create, or the lives you'll touch. You're just
+                                a little girl, starting the very first page of a story that will become so much bigger than you can imagine.</p>
+                            <p style="margin-top:0">
+
+                                I hope you always keep the things that make you you. I hope you keep your laughter, even when life gets difficult. I hope you keep your kindness, even when the world gives you reasons not to.</p>
+                            <p style="margin-top:0">I hope you never stop noticing the little beautiful things around you, because one day you'll realize those are the moments that make life truly special. And somewhere in the future, someone will look back at this little girl
+                                and be grateful that she existed.</p>
+                            <p style="margin-top:0"> Keep smiling. Keep being you.</p>
+
+                            <div class="closing">
+                                With admiration and great affection,
+                                <div class="signature">A Well-Wisher</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="letter-shadow"></div>
+                </div>
+
+                <div class="scroll-hint" id="hint">
+                    <span>Scroll to open</span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 2v14M3 10l6 6 6-6" stroke="#a08050" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+                </div>
+
+            </div>
+            <!-- /.letter-sticky -->
+    </section>
+    <nav class="menu-bar">
+        <a class="menu-btn" href="../homepage/homepage.html">Home</a>
+        <a class="menu-btn" href="../poem-page/poem.html">Velour Verses</a>
+        <a class="menu-btn" href="../reasons-ily-page/reasons.html">Long list</a>
+        <a class="menu-btn" href="../lang-ily/lang.html">Love, Translated</a>
+        <a class="menu-btn" href="../yt-lookalike/yt-look.html">JudeTube</a>
+        <a class="menu-btn" href="../tv-room/index.html">TV Room</a>
+        <a class="menu-btn" href="../letters/letters-new.html">Dear You,</a>
+        <a class="menu-btn" href="../floating-words/floating-words.html">Loose Petals</a>
+        <a class="menu-btn" href="../final-page/final.html">Final</a>
+    </nav>
+    <script src="tdya.js"></script>
+</body>
+
+</html>
